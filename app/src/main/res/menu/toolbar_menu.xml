@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/action_notification1"
+        android:icon="@drawable/ic_more_vert_black_24dp"
+        app:showAsAction="always"
+        android:title="action_notification">
+        <menu>
+
+    <item
+        android:id="@+id/menu_refresh"
+        android:icon="@drawable/ic_refresh"
+        android:title="Refresh"
+        />
+
+    <item
+        android:id="@+id/menu_logout"
+        android:icon="@drawable/logout"
+        android:title="Logout" />
+        </menu>
+    </item>
+
+</menu>

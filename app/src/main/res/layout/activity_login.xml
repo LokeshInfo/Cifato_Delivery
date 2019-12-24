@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/img_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:textSize="12pt"
+        android:textColor="@color/black"
+        style="@style/bold_tx"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20pt"
+        />
+
+    <ScrollView
+        android:id="@+id/scrllview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true"
+        android:scrollbars="vertical"
+        android:layout_below="@+id/img_logo"
+        >
+
+    <LinearLayout
+        android:id="@+id/Linr1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="24dp"
+        android:orientation="vertical"
+        android:focusable="false"
+        android:focusableInTouchMode="true"
+        android:layout_marginBottom="20pt"
+        >
+
+    <EditText
+        android:id="@+id/ed_email"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginTop="10dp"
+        android:hint="Username"
+        android:textColorHint="@color/light_grey"
+        android:background="@drawable/edit_text"
+        android:paddingEnd="15dp"
+        android:paddingRight="15dp"
+        android:singleLine="true"
+        android:padding="2dp"
+        android:drawableRight="@drawable/ic_user"
+        android:focusableInTouchMode="true"
+        android:paddingStart="24dp"
+        android:paddingLeft="24dp"
+        android:drawablePadding="10dp"
+        style="@style/ed_txt"
+        android:autoLink="none"
+        android:autoText="false"
+        />
+
+
+    <EditText
+        android:id="@+id/ed_password"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:layout_marginTop="15dp"
+        android:hint="Password"
+        android:textColorHint="@color/light_grey"
+        android:background="@drawable/edit_text"
+        android:paddingEnd="15dp"
+        android:longClickable="false"
+        android:paddingRight="15dp"
+        android:singleLine="true"
+        android:padding="2dp"
+        android:focusableInTouchMode="true"
+        android:drawableRight="@drawable/ic_eye"
+        android:paddingStart="24dp"
+        android:paddingLeft="24dp"
+        android:drawablePadding="10dp"
+        style="@style/ed_txt"
+        android:inputType="textPassword"
+        android:autoLink="none"
+        android:autoText="false"
+        />
+
+    <Button
+        android:id="@+id/button_login"
+        android:layout_width="match_parent"
+        android:layout_height="44dp"
+        android:background="@drawable/button"
+        android:layout_marginTop="15pt"
+        android:text="SIGN  IN"
+        android:textColor="@color/white"
+        android:textSize="8pt"
+        style="@style/bold_tx"
+        />
+
+        <FrameLayout
+            android:id="@+id/img_lyt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="90dp"
+            >
+
+        <ImageView
+            android:id="@+id/img_delivery"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:src="@drawable/delivery_boy"
+            android:layout_gravity="center_horizontal"
+            />
+            <ImageView
+                android:id="@+id/img_delivery2"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:src="@drawable/delivery_boy"
+                android:layout_gravity="center_horizontal"
+                />
+        </FrameLayout>
+    </LinearLayout>
+    </ScrollView>
+
+
+</RelativeLayout>

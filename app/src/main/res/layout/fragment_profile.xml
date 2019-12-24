@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/img_profile"
+        android:layout_width="160dp"
+        android:layout_height="150dp"
+        app:civ_border_width="2dp"
+        app:civ_border_color="@color/colorPrimary"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10pt"
+        android:src="@drawable/ic_account_circle_black_24dp"
+        android:padding="9dp"
+        android:layout_marginBottom="10pt"
+        />
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/img_profile"
+        android:layout_margin="10dp"
+        app:cardCornerRadius="15dp"
+        android:elevation="7dp"
+        >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="15dp"
+        android:gravity="center_vertical"
+        >
+
+        <TextView
+            android:id="@+id/tx_pname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="9pt"
+            android:padding="10dp"
+            android:gravity="center_vertical"
+            android:textAlignment="center"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.44dp"
+            android:background="@color/black"/>
+
+
+        <TextView
+            android:id="@+id/tx_pmobile"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="9pt"
+            android:gravity="center_vertical"
+            android:padding="10dp"
+            android:textAlignment="center"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.55dp"
+            android:background="@color/black"/>
+
+        <TextView
+            android:id="@+id/tx_pmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="9pt"
+            android:padding="10dp"
+            android:gravity="center_vertical"
+            android:textAlignment="center"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.55dp"
+            android:background="@color/black"/>
+
+        <TextView
+            android:id="@+id/tx_area"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="9pt"
+            android:padding="10dp"
+            android:gravity="center_vertical"
+            android:textAlignment="center"/>
+
+    </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+
+</RelativeLayout>

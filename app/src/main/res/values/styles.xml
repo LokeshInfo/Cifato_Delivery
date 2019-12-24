@@ -1,0 +1,41 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+
+    <style name="tx_vu" parent="android:Widget.TextView">
+        <item name="fontPath">fonts/Roboto-Regular.ttf</item>
+        <item name="android:textSize">12dp</item>
+    </style>
+
+    <style name="tx_vu1" parent="android:Widget.TextView">
+        <item name="fontPath">fonts/Roboto-Regular.ttf</item>
+        <item name="android:textSize">20dp</item>
+    </style>
+
+    <style name="bold_tx" parent="android:Widget.TextView">
+        <item name="fontPath">fonts/Kollektif-Bold.ttf</item>
+    </style>
+
+    <style name="tx_italic" parent="android:Widget.TextView">
+        <item name="fontPath">fonts/Peaches.otf</item>
+    </style>
+
+    <style name="ed_txt" parent="android:Widget.EditText">
+        <item name="fontPath">fonts/Roboto-Regular.ttf</item>
+        <item name="android:textSize">8pt</item>
+        <item name="android:textColor">@color/black</item>
+        <item name="android:textColorHint">@color/light_grey</item>
+    </style>
+
+</resources>

@@ -5,6 +5,7 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -18,6 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.ics.cifato_delivery.AppUtils.AppPrefrences;
 import com.ics.cifato_delivery.AppUtils.BaseUrl;
 import com.ics.cifato_delivery.Fragment.Order_details;
+import com.ics.cifato_delivery.Model.Confirm_Order_Responce;
 import com.ics.cifato_delivery.Model.Delivery_data;
 import com.ics.cifato_delivery.Model.Order_Finish;
 import com.ics.cifato_delivery.R;
@@ -97,7 +99,6 @@ public class Delivery_List_Adapter  extends RecyclerView.Adapter<Delivery_List_A
             viewHolder.icmap.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
                     String latitude = dob.getLatitude();
                     String longitude = dob.getLongitude();
                     Uri.Builder builder = new Uri.Builder();
@@ -118,7 +119,7 @@ public class Delivery_List_Adapter  extends RecyclerView.Adapter<Delivery_List_A
 
     public class ViewHolder extends RecyclerView.ViewHolder
     {
-        TextView oid,name, mobile, address, paymode, amount, details, finishb, date;
+        TextView oid,name, mobile, address, paymode, amount, details, finishb, date, confirm_order;
         ImageView icmap, call_user;
 
         public ViewHolder(View itemview) {
@@ -134,6 +135,7 @@ public class Delivery_List_Adapter  extends RecyclerView.Adapter<Delivery_List_A
             finishb = itemview.findViewById(R.id.finish_buttn);
             icmap = itemview.findViewById(R.id.icon_map);
             call_user = itemview.findViewById(R.id.call_user);
+            confirm_order = itemview.findViewById(R.id.confirm_order);
         }
     }
 
@@ -181,6 +183,55 @@ public class Delivery_List_Adapter  extends RecyclerView.Adapter<Delivery_List_A
 
             }
         });
+    }
+
+    private void alert_box_confirm(final int value)
+    {
+        AlertDialog.Builder builder = new AlertDialog.Builder(mactivity);
+        builder.setTitle("Confirm");
+        builder.setMessage("Are you sure?");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                CALL_API(value);
+                dialog.dismiss();
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        AlertDialog dlg = builder.create();
+        //dlg.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(Color.GRAY);
+        dlg.show();
+        dlg.getButton(AlertDialog.BUTTON_NEGATIVE).setPadding(0,0,10,0);
+        dlg.getButton(AlertDialog.BUTTON_NEGATIVE).setTextColor(mactivity.getResources().getColor(R.color.grey));
+        dlg.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(mactivity.getResources().getColor(R.color.colorPrimary));
+    }
+
+    private void CONFIRM_ORDER(String order_id, int i){
+
+        BaseUrl.getAPIService().CONFIRM_ORDER(order_id).enqueue(new Callback<Confirm_Order_Responce>() {
+            @Override
+            public void onResponse(Call<Confirm_Order_Responce> call, Response<Confirm_Order_Responce> response) {
+                if (response.body().getResponse()) {
+                    //dataList.remove(dataList.get(val));
+                    notifyDataSetChanged();
+                    Toast.makeText(mactivity, "Order finished / Delivered...", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(mactivity, "Order not finished...", Toast.LENGTH_SHORT).show();
+                }
+            }
+
+            @Override
+            public void onFailure(Call<Confirm_Order_Responce> call, Throwable t) {
+
+                Log.e("Confirm Order Error "," "+t.getLocalizedMessage()+"\n"+t.getMessage()+"\n"+t.getCause());
+            }
+        });
+
     }
 
 

@@ -47,6 +47,7 @@ public class Order_Details_Adapter extends RecyclerView.Adapter<Order_Details_Ad
          viewHolder.name.setText(""+dob.getProduct_name());
          viewHolder.qty.setText(""+dob.getQty_in_kg()+" Items"+"  Rs. "+dob.getPrice());
          viewHolder.area.setText(""+dob.getArea());
+         viewHolder.shopname.setText(""+dob.getRestaurant());
 
         }
     }
@@ -58,11 +59,12 @@ public class Order_Details_Adapter extends RecyclerView.Adapter<Order_Details_Ad
 
     public class ViewHolder extends RecyclerView.ViewHolder
     {
-        TextView name, qty, area;
+        TextView name, qty, area, shopname;
 
         public ViewHolder(View itemview) {
             super(itemview);
 
+            shopname = itemview.findViewById(R.id.shopname);
             name = itemview.findViewById(R.id.p_name);
             qty = itemview.findViewById(R.id.p_qty);
             area = itemview.findViewById(R.id.p_area);

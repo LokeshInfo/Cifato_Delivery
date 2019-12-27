@@ -47,6 +47,22 @@
             android:layout_centerVertical="true"
             />
         <TextView
+            android:id="@+id/confirm_order"
+            android:layout_width="158dp"
+            android:layout_height="34dp"
+            android:text="Confirm Order"
+            android:textColor="@color/white"
+            android:textSize="8pt"
+            android:textAlignment="center"
+            android:background="@drawable/button"
+            android:gravity="center_vertical|center_horizontal"
+            android:layout_gravity="end"
+            style="@style/bold_tx"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            />
+        <TextView
             android:id="@+id/finish_buttn"
             android:layout_width="100dp"
             android:layout_height="34dp"
@@ -61,6 +77,7 @@
             android:layout_alignParentEnd="true"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
+            android:visibility="gone"
             />
     </RelativeLayout>
 

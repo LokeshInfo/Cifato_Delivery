@@ -1,9 +1,11 @@
 package com.ics.cifato_delivery.Fragment;
 
+import android.app.ProgressDialog;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -56,11 +58,19 @@ public class Order_details extends AppCompatActivity
 
     private void Call_Data(){
 
+        final ProgressDialog progressBar;
+        progressBar = new ProgressDialog(Order_details.this);
+        progressBar.setMessage("Processing");
+        progressBar.setCancelable(true);
+        progressBar.show();
+
         ApiService.CALL_DETAILS(order_id).enqueue(new Callback<Order_Details_Responce>() {
             @Override
             public void onResponse(Call<Order_Details_Responce> call, Response<Order_Details_Responce> response) {
+                progressBar.dismiss();
                 Log.e("CALL_DETAILS RESPONSE.", "" + new Gson().toJson(response.body()));
                 Log.e("CALL_DETAILS RESPONSE.", "-------------------------------------------------");
+
                 adapter = new Order_Details_Adapter(Order_details.this,response.body().getData());
                 linearLayoutManager = new LinearLayoutManager(Order_details.this);
                 recyclerView.setLayoutManager(linearLayoutManager);
@@ -71,6 +81,7 @@ public class Order_details extends AppCompatActivity
 
             @Override
             public void onFailure(Call<Order_Details_Responce> call, Throwable t) {
+                progressBar.dismiss();
                 Log.e("CALL_DETAILS Error ..." ,""+t.getStackTrace().toString());
                 Log.e("CALL_DETAILS Error ..." ,""+t.getMessage());
                 Log.e("CALL_DETAILS Error ..." ,""+t.getCause());

@@ -1,5 +1,6 @@
 package com.ics.cifato_delivery.AppUtils;
 
+import com.ics.cifato_delivery.Model.Confirm_Order_Responce;
 import com.ics.cifato_delivery.Model.Delivery_Responce;
 import com.ics.cifato_delivery.Model.Login_Response;
 import com.ics.cifato_delivery.Model.Order_Details_Responce;
@@ -42,6 +43,12 @@ public interface Api_Parameter
     @POST("delivered_status")
     Call<Order_Finish>ORDER_FINISH(
             @Field("order_id")String order_id
+    );
+
+    @FormUrlEncoded
+    @POST("confirm_order")
+    Call<Confirm_Order_Responce>CONFIRM_ORDER(
+      @Field("sale_id") String sale_id
     );
 
 }

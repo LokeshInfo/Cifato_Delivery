@@ -29,6 +29,10 @@ public class Order_Details_Data {
     @Expose
     private String area;
 
+    @SerializedName("restaurant")
+    @Expose
+    private String restaurant;
+
 
     public String getProduct_name() {
         return product_name;
@@ -76,6 +80,14 @@ public class Order_Details_Data {
 
     public void setArea(String area) {
         this.area = area;
+    }
+
+    public String getRestaurant() {
+        return restaurant;
+    }
+
+    public void setRestaurant(String restaurant) {
+        this.restaurant = restaurant;
     }
 }
 

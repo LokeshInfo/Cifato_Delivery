@@ -14,6 +14,7 @@ public class AppPrefrences
     public static final String ADDRESS = "address";
     public static final String IMAGE = "image";
     public static final String AREA = "area";
+    public static final String TOKEN = "token";
 
     Context context;
     SharedPreferences prefs;
@@ -22,7 +23,6 @@ public class AppPrefrences
 
     public static final String IS_LOGIN = "isLogin";
     public static final String KEY_NAME = "user_fullname";
-
 
     public static String getUserid(Context context) {
         SharedPreferences preferences = context.getSharedPreferences(SHARED_PREFERENCE_NAME, 0);
@@ -109,6 +109,18 @@ public class AppPrefrences
         SharedPreferences preferences = context.getSharedPreferences(SHARED_PREFERENCE_NAME, 0);
         SharedPreferences.Editor editor = preferences.edit();
         editor.putString(AREA, value);
+        editor.commit();
+    }
+
+    public static String getToken(Context context) {
+        SharedPreferences preferences = context.getSharedPreferences(SHARED_PREFERENCE_NAME, 0);
+        return preferences.getString(TOKEN, "");
+    }
+
+    public static void setToken(Context context, String value) {
+        SharedPreferences preferences = context.getSharedPreferences(SHARED_PREFERENCE_NAME, 0);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putString(TOKEN, value);
         editor.commit();
     }
 

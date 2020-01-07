@@ -1,0 +1,138 @@
+{
+  "project_info": {
+    "project_number": "54729199990",
+    "firebase_url": "https://vertical-wall-222311.firebaseio.com",
+    "project_id": "vertical-wall-222311",
+    "storage_bucket": "vertical-wall-222311.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:54729199990:android:14b25bc59e2fcaf3",
+        "android_client_info": {
+          "package_name": "cifato.foody"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "54729199990-1mt2pc04vmh15toinpj228cf084th5of.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "cifato.foody",
+            "certificate_hash": "ccde9e6850d782a7de38ba0364a3b21a64ae096d"
+          }
+        },
+        {
+          "client_id": "54729199990-l2na2hpirctqopekcmfr4jdt6cctn2jc.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "cifato.foody",
+            "certificate_hash": "fdb626c51f738da9ff95331ff5e82a554a49f79f"
+          }
+        },
+        {
+          "client_id": "54729199990-e6e8p6vr8vpeh7steg446bgfh34mqbge.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdrEsJ_iQ26KlIDo6e4m45ukGU5dKLrjg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "54729199990-e6e8p6vr8vpeh7steg446bgfh34mqbge.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:54729199990:android:9a190a00fd0c0aa246ea57",
+        "android_client_info": {
+          "package_name": "com.ics.cifato_delivery"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "54729199990-bflv2e6il5h7fafmq5tve92033023d3u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ics.cifato_delivery",
+            "certificate_hash": "cdaa489ecbf580aebfd7c0afa5ccd1df0acfb4e7"
+          }
+        },
+        {
+          "client_id": "54729199990-e6e8p6vr8vpeh7steg446bgfh34mqbge.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdrEsJ_iQ26KlIDo6e4m45ukGU5dKLrjg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "54729199990-e6e8p6vr8vpeh7steg446bgfh34mqbge.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:54729199990:android:bd95128a2d1a713a",
+        "android_client_info": {
+          "package_name": "com.ics.cifatofoody"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "54729199990-ei1d9h2rt0bqk3v83cmcqch206bmc706.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ics.cifatofoody",
+            "certificate_hash": "fdb626c51f738da9ff95331ff5e82a554a49f79f"
+          }
+        },
+        {
+          "client_id": "54729199990-kagc9lviidgjp91hk6n0sqgf4cvknqno.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ics.cifatofoody",
+            "certificate_hash": "ccde9e6850d782a7de38ba0364a3b21a64ae096d"
+          }
+        },
+        {
+          "client_id": "54729199990-e6e8p6vr8vpeh7steg446bgfh34mqbge.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAdrEsJ_iQ26KlIDo6e4m45ukGU5dKLrjg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "54729199990-e6e8p6vr8vpeh7steg446bgfh34mqbge.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

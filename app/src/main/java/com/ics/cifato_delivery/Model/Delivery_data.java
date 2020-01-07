@@ -41,6 +41,10 @@ public class Delivery_data {
     @Expose
     private String latitude;
 
+    @SerializedName("status")
+    @Expose
+    private String status;
+
     public String getOrderId() {
         return orderId;
     }
@@ -127,5 +131,13 @@ public class Delivery_data {
 
     public void setLatitude(String latitude) {
         this.latitude = latitude;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

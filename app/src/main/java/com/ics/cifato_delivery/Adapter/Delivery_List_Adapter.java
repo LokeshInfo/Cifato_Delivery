@@ -2,6 +2,7 @@ package com.ics.cifato_delivery.Adapter;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.ProgressDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
@@ -66,6 +67,23 @@ public class Delivery_List_Adapter  extends RecyclerView.Adapter<Delivery_List_A
             //viewHolder.amount.setText("Rs. "+dob.getTotalAmount());
             viewHolder.address.setText(""+dob.getDeliveryAddress());
 
+            int status = Integer.parseInt(dob.getStatus());
+            if (status==0){
+                viewHolder.confirm_order.setVisibility(View.VISIBLE);
+                viewHolder.finishb.setVisibility(View.GONE);
+                viewHolder.cancelled_order.setVisibility(View.GONE);
+            }
+            else if (status == 3){
+                viewHolder.cancelled_order.setVisibility(View.VISIBLE);
+                viewHolder.confirm_order.setVisibility(View.GONE);
+                viewHolder.finishb.setVisibility(View.GONE);
+            }
+            else{
+                viewHolder.finishb.setVisibility(View.VISIBLE);
+                viewHolder.confirm_order.setVisibility(View.GONE);
+                viewHolder.cancelled_order.setVisibility(View.GONE);
+            }
+
             viewHolder.call_user.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -96,19 +114,13 @@ public class Delivery_List_Adapter  extends RecyclerView.Adapter<Delivery_List_A
                 }
             });
 
-            viewHolder.icmap.setOnClickListener(new View.OnClickListener() {
+            viewHolder.confirm_order.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    String latitude = dob.getLatitude();
-                    String longitude = dob.getLongitude();
-                    Uri.Builder builder = new Uri.Builder();
-
-                    Uri gmmIntentUri = Uri.parse("google.navigation:q="+latitude+","+longitude + "&mode=d");
-                    Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
-                    mapIntent.setPackage("com.google.android.apps.maps");
-                    mactivity.startActivity(mapIntent);
+                    alert_box_confirm(i);
                 }
             });
+
         }
     }
 
@@ -119,7 +131,7 @@ public class Delivery_List_Adapter  extends RecyclerView.Adapter<Delivery_List_A
 
     public class ViewHolder extends RecyclerView.ViewHolder
     {
-        TextView oid,name, mobile, address, paymode, amount, details, finishb, date, confirm_order;
+        TextView oid,name, mobile, address, paymode, amount, details, finishb, date, confirm_order, cancelled_order;
         ImageView icmap, call_user;
 
         public ViewHolder(View itemview) {
@@ -136,6 +148,7 @@ public class Delivery_List_Adapter  extends RecyclerView.Adapter<Delivery_List_A
             icmap = itemview.findViewById(R.id.icon_map);
             call_user = itemview.findViewById(R.id.call_user);
             confirm_order = itemview.findViewById(R.id.confirm_order);
+            cancelled_order = itemview.findViewById(R.id.order_cancel);
         }
     }
 
@@ -185,7 +198,7 @@ public class Delivery_List_Adapter  extends RecyclerView.Adapter<Delivery_List_A
         });
     }
 
-    private void alert_box_confirm(final int value)
+    private void alert_box_confirm(final int vallue)
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(mactivity);
         builder.setTitle("Confirm");
@@ -193,7 +206,7 @@ public class Delivery_List_Adapter  extends RecyclerView.Adapter<Delivery_List_A
         builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                CALL_API(value);
+                CONFIRM_ORDER(vallue);
                 dialog.dismiss();
             }
         });
@@ -211,15 +224,21 @@ public class Delivery_List_Adapter  extends RecyclerView.Adapter<Delivery_List_A
         dlg.getButton(AlertDialog.BUTTON_POSITIVE).setTextColor(mactivity.getResources().getColor(R.color.colorPrimary));
     }
 
-    private void CONFIRM_ORDER(String order_id, int i){
+    private void CONFIRM_ORDER(final int vval){
 
-        BaseUrl.getAPIService().CONFIRM_ORDER(order_id).enqueue(new Callback<Confirm_Order_Responce>() {
+        final ProgressDialog dialog;
+        dialog = new ProgressDialog(mactivity);
+        dialog.setCancelable(true);
+        dialog.show();
+
+        BaseUrl.getAPIService().CONFIRM_ORDER(dataList.get(vval).getOrderId()).enqueue(new Callback<Confirm_Order_Responce>() {
             @Override
             public void onResponse(Call<Confirm_Order_Responce> call, Response<Confirm_Order_Responce> response) {
                 if (response.body().getResponse()) {
                     //dataList.remove(dataList.get(val));
+                    dataList.get(vval).setStatus("1");
                     notifyDataSetChanged();
-                    Toast.makeText(mactivity, "Order finished / Delivered...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mactivity, " Order "+dataList.get(vval).getOrderId() +" Confirmed...", Toast.LENGTH_SHORT).show();
                 } else {
                     Toast.makeText(mactivity, "Order not finished...", Toast.LENGTH_SHORT).show();
                 }
@@ -227,7 +246,6 @@ public class Delivery_List_Adapter  extends RecyclerView.Adapter<Delivery_List_A
 
             @Override
             public void onFailure(Call<Confirm_Order_Responce> call, Throwable t) {
-
                 Log.e("Confirm Order Error "," "+t.getLocalizedMessage()+"\n"+t.getMessage()+"\n"+t.getCause());
             }
         });

@@ -69,7 +69,6 @@ public class Delivery_list_fragment extends Fragment
 
         final ProgressDialog dialog;
         dialog = new ProgressDialog(getActivity());
-        dialog.setMessage("Processing");
         dialog.setCancelable(true);
         dialog.show();
         String user_id = AppPrefrences.getUserid(getActivity());
@@ -92,7 +91,7 @@ public class Delivery_list_fragment extends Fragment
                 }
                 else if (!response.body().getResponce()){
                     imgnot.setVisibility(View.VISIBLE);
-                    Toast.makeText(getActivity(), "No Data False", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getActivity(), "No Data False", Toast.LENGTH_SHORT).show();
                 }
                 else{
                     Toast.makeText(getActivity(), "No Data (False)", Toast.LENGTH_SHORT).show();

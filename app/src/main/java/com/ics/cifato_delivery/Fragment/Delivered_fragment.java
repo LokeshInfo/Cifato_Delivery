@@ -77,7 +77,7 @@ public class Delivered_fragment extends Fragment
                     recyclerView.setAdapter(adapter);
                 }
                 else if (!response.body().getResponce()){
-                    Toast.makeText(getActivity(), "No Data False", Toast.LENGTH_SHORT).show();
+                    //Toast.makeText(getActivity(), "No Data False", Toast.LENGTH_SHORT).show();
                     imgNothing.setVisibility(View.VISIBLE);
                 }
                 else{

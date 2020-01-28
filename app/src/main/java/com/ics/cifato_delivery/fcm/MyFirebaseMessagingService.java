@@ -1,6 +1,5 @@
 package com.ics.cifato_delivery.fcm;
 
-
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
@@ -206,7 +205,8 @@ public class MyFirebaseMessagingService extends FirebaseMessagingService {
         }
         vibrate_phone();
     }
-    private  void simpleteNotification(String title, String message, String timeStamp, PendingIntent pendingIntent){
+    private  void simpleteNotification(String title, String message, String timeStamp, PendingIntent pendingIntent)
+    {
         Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
         NotificationCompat.Builder notificationBuilder = new NotificationCompat.Builder(this)
                 .setSmallIcon(R.drawable.cifato_logo)
